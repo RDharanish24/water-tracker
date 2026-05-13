@@ -5,7 +5,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 GEMINI_API_KEY=os.getenv("GEMINI_API_KEY")
-llm=ChatGoogleGenerativeAI(api_key=GEMINI_API_KEY,model="gemini-1.5-flash",temperature=0.5)
+llm = ChatGoogleGenerativeAI(
+    model="gemini-3.1-flash-lite", # 'latest' is best for free tier
+    api_key=GEMINI_API_KEY,
+    temperature=0.5
+)
 
 class WaterIntakeAgent:
     def __init__(self):
